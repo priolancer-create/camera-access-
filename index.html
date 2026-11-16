@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b33">
+  <title>Front Camera → Telegram</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand-mark">N</div>
+      <div>
+        <h1>Front Camera Sender</h1>
+        <p>সামনের ক্যামেরা · Telegram delivery</p>
+      </div>
+    </header>
+
+    <section class="notice">
+      <strong>গোপনীয়তা ও সম্মতি</strong>
+      <p>ক্যামেরা কেবল Start Camera চাপলে চালু হবে। Auto Capture চালু থাকলে প্রতি ২ সেকেন্ডে একটি ছবি Telegram-এ পাঠানো হবে। ক্যামেরা চালু থাকা অবস্থায় এই পেজ খোলা ও দৃশ্যমান রাখুন। অন্য কারও ছবি তুলতে হলে তার স্পষ্ট সম্মতি নিন।</p>
+    </section>
+
+    <section class="camera-card">
+      <div class="preview-wrap">
+        <video id="preview" autoplay playsinline muted></video>
+        <div id="cameraBadge" class="camera-badge"><span></span> ক্যামেরা বন্ধ</div>
+      </div>
+      <canvas id="canvas" hidden></canvas>
+      <p id="status" class="status" role="status">ক্যামেরা চালু করতে নিচের বাটন চাপুন।</p>
+    </section>
+
+    <section class="controls">
+      <label class="field">
+        <span>Backend access code</span>
+        <input id="accessCode" type="password" autocomplete="off" placeholder="সার্ভারের ACCESS_CODE লিখুন">
+      </label>
+
+      <label class="consent">
+        <input id="consent" type="checkbox">
+        <span>আমি বুঝেছি যে প্রতি ২ সেকেন্ডে ছবি তোলা ও Telegram-এ পাঠানো হবে। ক্যামেরায় থাকা ব্যক্তিদের সম্মতি নেওয়া হয়েছে।</span>
+      </label>
+
+      <div class="buttons">
+        <button id="startCamera" class="secondary">Start Camera</button>
+        <button id="startAuto" disabled>Start Auto Capture</button>
+        <button id="stopAll" class="danger" disabled>Stop / Camera Off</button>
+      </div>
+      <p class="hint">এই অ্যাপ ব্যাকগ্রাউন্ডে বা গোপনে কাজ করে না। ট্যাব বন্ধ/লুকানো হলে অটো-ক্যাপচার বন্ধ হবে।</p>
+    </section>
+
+    <section class="log-card">
+      <div class="log-head"><strong>Activity</strong><span id="sentCount">পাঠানো: ০</span></div>
+      <ul id="activity"><li>এখনও কোনো ছবি পাঠানো হয়নি।</li></ul>
+    </section>
+
+    <footer>HTTPS প্রয়োজন · Bot Token সার্ভারে নিরাপদে রাখুন</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
